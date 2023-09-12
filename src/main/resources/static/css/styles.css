@@ -31,24 +31,50 @@ body {
 }
 
 .form-container {
-    min-height: 50vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.img-card img {
+    width: 10%;
+}
+
 .card {
-    background-image: url('../images/ebook.png');
-    border: 1px solid #008080;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
     border-radius: 5px;
-    width: 500px;
+    width: 550px;
 }
 
 .input-card {
-    margin: 5px 0 10px 15px;
-    padding: 10px 5px 0 15px;
+    margin: 5px 0;
+    padding: 3px 15px;
+    text-align: center;
+}
+
+.input-card span {
+    display: block;
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
 }
 
 input {
-    margin-right: 10px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 441px;
+    height: 83px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #f8f8f8;
+    resize: none;
 }
