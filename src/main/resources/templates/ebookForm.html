@@ -21,6 +21,9 @@
     <div class="form-container">
         <form method="POST" th:action="@{/ebook}" th:object="${ebook}">
             <div class="card">
+                <div class="img-card">
+                    <img th:src="@{/images/ebook.png}">
+                </div>
                 <div class="input-card">
                     <span th:if="${#fields.hasErrors('authorsName')}"
                           th:errors="*{authorsName}">Error in authors name</span>
@@ -30,6 +33,22 @@
                           th:errors="*{title}">Error found in title</span>
                     <input type="text" th:field="*{title}" placeholder="Book Title">
                 </div>
+
+                <div class="input-card">
+                    <span>Document source (Optional)</span>
+                    <input type="text" th:field="*{docSource}">
+
+                    <span th:if="${#fields.hasErrors('isbn')}"
+                          th:errors="*{isbn'}">Book ISBN error</span>
+                    <input type="text" th:field="*{isbn}">
+                </div>
+
+                <div class="input-card">
+                    <span th:if="${#fields.hasErrors('description')}"
+                          th:errors="*{description}">Proper description is required</span>
+                    <textarea th:field="*{description}"></textarea>
+                </div>
+                <input type="submit" value="Register">
             </div>
         </form>
     </div>
