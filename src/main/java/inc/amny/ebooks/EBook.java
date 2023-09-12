@@ -23,6 +23,8 @@ public class EBook {
     @NotBlank(message = "ISBN is required")
     private String isbn;
 
+    private String docSource;
+
     @NotBlank(message = "Please summarize what the book entails")
-    private String aboutTheBook;
+    private String description;
 }
