@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>E-Book Form</title>
+</head>
+
+<body>
+    <nav class="header">
+        <div id="container">
+            <div class="logo">
+                <img th:src="@{/images/ebook.png}"/>
+
+                <span class="brand">Amny.inc E-book Store</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <form method="POST" th:action="@{/ebook}" th:object="${ebook}">
+            <div class="card">
+                <div class="input-card">
+                    <span th:if="${#fields.hasErrors('authorsName')}"
+                          th:errors="*{authorsName}">Error in authors name</span>
+                    <input type="text" th:field="*{authorsName}" placeholder="Author's Name">
+
+                    <span th:if="${#fields.hasErrors('title')}"
+                          th:errors="*{title}">Error found in title</span>
+                    <input type="text" th:field="*{title}" placeholder="Book Title">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
