@@ -7,12 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 public class EBook {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
+
+    Date createdAt = new Date();
 
     @NotBlank(message = "Authors name is required!")
     private String authorsName;

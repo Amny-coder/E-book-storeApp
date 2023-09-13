@@ -3,10 +3,13 @@ package inc.amny.ebooks.web;
 
 import inc.amny.ebooks.EBook;
 import inc.amny.ebooks.Repository.EbookRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,22 +22,24 @@ public class EbookController {
         this.eBookRepo = eBookRepo;
     }
 
-    @ModelAttribute
-    public void addEbookToModel(Model model) {
-        Iterable<EBook> ebooks = eBookRepo.findAll();
-        for (EBook eBook : ebooks) {
-            model.addAttribute(eBook);
-        }
-    }
-
     @ModelAttribute(name = "ebook")
     public EBook eBook() {
         return new EBook();
     }
 
-    @GetMapping
+    @GetMapping("/registration")
     public String eBookForm() {
         return "ebookForm";
+    }
+
+    @PostMapping
+    public String processDoc(@Valid EBook ebook, Errors errors) {
+
+        if (errors.hasErrors()) {
+            return "ebookForm";
+        }
+        eBookRepo.save(ebook);
+        return "redirect:/ebook/store";
     }
 
 }
