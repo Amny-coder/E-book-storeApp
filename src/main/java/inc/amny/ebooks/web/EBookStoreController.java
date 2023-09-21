@@ -20,7 +20,7 @@ public class EBookStoreController {
     }
 
     @ModelAttribute
-    public void addEbookToModel(Model model) {
+    public void authUserModelView(Model model) {
         Iterable<EBook> ebooks = eBookRepo.findAll();
         for (EBook eBook : ebooks) {
             model.addAttribute(eBook);

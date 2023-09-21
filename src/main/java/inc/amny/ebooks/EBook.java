@@ -1,9 +1,6 @@
 package inc.amny.ebooks;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -11,10 +8,11 @@ import java.util.Date;
 
 @Data
 @Entity
+@Table(name = "ebook_store")
 public class EBook {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Id
-    private Long id;
+    private String id;
 
     Date createdAt = new Date();
 
@@ -31,4 +29,12 @@ public class EBook {
 
     @NotBlank(message = "Please summarize what the book entails")
     private String description;
+
+    @Lob
+    private byte[] eBookContent;
+
+    @Lob
+    private byte[] docCover;
+
+    private long docSize;
 }

@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Montserrat', sans-serif;*/
 }
 
 #container {
@@ -68,7 +68,13 @@ body {
 
 input {
     height: 40px;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
+}
+
+.file-upload {
+    margin: 5px 0;
+    padding: 3px 15px;
+    text-align: center;
 }
 
 textarea {

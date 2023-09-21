@@ -1,4 +1,9 @@
 spring:
   datasource:
     generate-unique-name: false
-    name: ebooks
+    name: ebook
+
+    servlet:
+      multipart:
+        max-file-size: 1000MB
+        max-request-size: 100MB
