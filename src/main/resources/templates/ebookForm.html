@@ -19,7 +19,7 @@
     </nav>
 
     <div class="form-container">
-        <form method="POST" th:action="@{/ebook}" th:object="${ebook}">
+        <form method="POST" th:action="@{/ebook}" th:object="${ebook}" enctype="multipart/form-data">
             <div class="card">
                 <div class="img-card">
                     <img th:src="@{/images/ebook.png}">
@@ -39,8 +39,16 @@
                     <input type="text" th:field="*{docSource}">
 
                     <span th:if="${#fields.hasErrors('isbn')}"
-                          th:errors="*{isbn'}">Book ISBN error</span>
+                          th:errors="*{isbn}">Book ISBN error</span>
                     <input type="text" th:field="*{isbn}">
+                </div>
+
+                <div class="file-upload">
+                    <span>Select E-book to upload</span>
+                    <input type="file" name="document" required><br/>
+
+                    <span>Select E-book cover</span>
+                    <input type="file" name="bookCover" required>
                 </div>
 
                 <div class="input-card">
