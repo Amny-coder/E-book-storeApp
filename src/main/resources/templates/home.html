@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>E-book</title>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-$END$
+    <nav class="header">
+        <div id="container">
+            <div class="logo">
+                <img th:src="@{/images/ebook.png}"/>
+
+                <span class="brand">Amny.inc E-book Store</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <th:block th:each="">
+
+        </th:block>
+    </div>
 </body>
 </html>
